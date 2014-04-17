@@ -1,0 +1,142 @@
+<html>
+<style>
+
+*:focus {
+    outline: 0;
+}
+
+.play-container{
+	margin: 0 auto;
+	width: 30%;
+	margin-top: .5em;
+	text-align: center;
+}
+.play {
+	-moz-box-shadow:inset 0px 1px 6px 0px #cae3fc;
+	-webkit-box-shadow:inset 0px 1px 6px 0px #cae3fc;
+	box-shadow:inset 0px 1px 6px 0px #cae3fc;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #4197ee) );
+	background:-moz-linear-gradient( center top, #79bbff 5%, #4197ee 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#4197ee');
+	background-color:#79bbff;
+	-webkit-border-top-left-radius:15px;
+	-moz-border-radius-topleft:15px;
+	border-top-left-radius:15px;
+	-webkit-border-top-right-radius:15px;
+	-moz-border-radius-topright:15px;
+	border-top-right-radius:15px;
+	-webkit-border-bottom-right-radius:15px;
+	-moz-border-radius-bottomright:15px;
+	border-bottom-right-radius:15px;
+	-webkit-border-bottom-left-radius:15px;
+	-moz-border-radius-bottomleft:15px;
+	border-bottom-left-radius:15px;
+	text-indent:0;
+	border:1px solid #469df5;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:58px;
+	line-height:58px;
+	width:131px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #287ace;
+}
+.play:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4197ee), color-stop(1, #79bbff) );
+	background:-moz-linear-gradient( center top, #4197ee 5%, #79bbff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4197ee', endColorstr='#79bbff');
+	background-color:#4197ee;
+}.play:active {
+	position:relative;
+	top:1px;
+}
+
+.step{
+	border: 1px solid black;
+	text-align: center;
+	height: 7em;
+	width: 20em;
+	margin: 0 auto;
+	margin-top: 5em;
+	display: table;
+	overflow: hidden;
+	font-size: 40px;
+}
+
+.step:hover {
+	-webkit-box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.54);
+	-moz-box-shadow:    3px 3px 5px 0px rgba(50, 50, 50, 0.54);
+	box-shadow:         3px 3px 5px 0px rgba(50, 50, 50, 0.54);
+	border: 2px solid black;
+}
+
+#step{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+</style>
+<head>
+	<title>Step</title>
+	<script src='underscore-min.js'></script>
+</head>
+
+	<script>
+	$male_death = [0, 0.000637,	0.000430,	0.000357,	0.000278,	0.000255,	0.000244,	0.000234,	0.000216,	0.000209,	0.000212,	0.000223,	0.000243,	0.000275,	0.000320,	0.000371,	0.000421,	0.000463,	0.000495,	0.000521,	0.000545,	0.000570,	0.000598,	0.000633,	0.000671,	0.000711,	0.000749,	0.000782,	0.000811,	0.000838,	0.000862,	0.000883,	0.000902,	0.000912,	0.000913,	0.000915,	0.000927,	0.000958,	0.001010,	0.001075,	0.001153,	0.001243,	0.001346,	0.001454,	0.001568,	0.001697,	0.001852,	0.002042,	0.002260,	0.002501,	0.002773,	0.003088,	0.003455,	0.003854,	0.004278,	0.004758,	0.005322,	0.006001,	0.006774,	0.007623,	0.008576,	0.009663,	0.010911,	0.012335,	0.013914,	0.015629,	0.017462,	0.019391,	0.021354,	0.023364,	0.025516,	0.027905,	0.030625,	0.033549,	0.036614,	0.040012,	0.043933,	0.048570,	0.053991,	0.060066,	0.066696,	0.073780,	0.081217,	0.088721,	0.096358,	0.104559,	0.113755,	0.124377,	0.136537,	0.149949,	0.164442,	0.179849,	0.196001,	0.213325,	0.231936,	0.251189,	0.270441,	0.289048,	0.306750,	0.323976,	0.341116,	0.358560,	0.376699,	0.396884,	0.418855,	0.440585,	0.460043,	0.475200,	0.485670,	0.492807,	0.497189,	0.499394,	0.500000,	0.500000,	0.500000,	0.500000,	0.500000,	0.500000,	0.500000,	0.500000,	1.000000];
+	$male_survival = _.map($male_death, function(num){ return (1 - num); });
+	</script>
+	<script>
+
+		var $total=0
+		var $age=0
+		var $maxAge=$male_death.length - 1
+		function myFunction(num) {
+			$total += num;
+  		return $male_survival[$total];           // return the product of p1 and p2
+		}
+
+		function update() {
+			document.getElementById("step").innerHTML = myFunction(1) + "<br>"
+		}
+
+		function product(list){
+			prod = 1;
+			for (i=0; i<list.length; i++){
+				prod *= list[i];
+			}
+			return Math.round(prod*100000)/100000;
+		}
+
+		function survival_to(age){
+			return product(_.initial($male_survival, $male_survival.length - age - 1));
+		}
+
+		function survive() {
+			document.getElementById("step").innerHTML = "Age: " + $age + "<br>" + survival_to($age) + "<br>";
+			$age += 1;
+			$maxAge -= 1;
+		}
+
+	</script>
+
+<body>
+
+	<div class="step">
+		<div id="step">
+			<script>
+				survive();
+			</script>
+		</div>
+	</div>
+
+	<div class="play-container">
+		<button onclick="survive()"class="play">Play</button>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+*:focus {
+    outline: 0;
+}
+
+.play-container{
+	margin: 0 auto;
+	width: 30%;
+	margin-top: .5em;
+	text-align: center;
+}
+.play {
+	-moz-box-shadow:inset 0px 1px 6px 0px #cae3fc;
+	-webkit-box-shadow:inset 0px 1px 6px 0px #cae3fc;
+	box-shadow:inset 0px 1px 6px 0px #cae3fc;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #4197ee) );
+	background:-moz-linear-gradient( center top, #79bbff 5%, #4197ee 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#4197ee');
+	background-color:#79bbff;
+	-webkit-border-top-left-radius:15px;
+	-moz-border-radius-topleft:15px;
+	border-top-left-radius:15px;
+	-webkit-border-top-right-radius:15px;
+	-moz-border-radius-topright:15px;
+	border-top-right-radius:15px;
+	-webkit-border-bottom-right-radius:15px;
+	-moz-border-radius-bottomright:15px;
+	border-bottom-right-radius:15px;
+	-webkit-border-bottom-left-radius:15px;
+	-moz-border-radius-bottomleft:15px;
+	border-bottom-left-radius:15px;
+	text-indent:0;
+	border:1px solid #469df5;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:58px;
+	line-height:58px;
+	width:131px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #287ace;
+}
+.play:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4197ee), color-stop(1, #79bbff) );
+	background:-moz-linear-gradient( center top, #4197ee 5%, #79bbff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4197ee', endColorstr='#79bbff');
+	background-color:#4197ee;
+}.play:active {
+	position:relative;
+	top:1px;
+}
+
+.step{
+	border: 1px solid black;
+	text-align: center;
+	height: 7em;
+	width: 20em;
+	margin: 0 auto;
+	margin-top: 5em;
+	display: table;
+	overflow: hidden;
+	font-size: 40px;
+}
+
+.step:hover {
+	-webkit-box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.54);
+	-moz-box-shadow:    3px 3px 5px 0px rgba(50, 50, 50, 0.54);
+	box-shadow:         3px 3px 5px 0px rgba(50, 50, 50, 0.54);
+	border: 2px solid black;
+}
+
+#step{
+	display: table-cell;
+	vertical-align: middle;
+}
